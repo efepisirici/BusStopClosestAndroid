@@ -1,0 +1,19 @@
+name: MegaLinter
+
+on:
+  workflow_dispatch: # manuel tetikleme
+  push:              # istersen push'ta da çalışır
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  megalinter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: MegaLinter
+        uses: oxsecurity/megalinter@v7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,10 +1,8 @@
+---
 name: MegaLinter
 
 on:
-  workflow_dispatch: # manuel tetikleme
-  push:              # istersen push'ta da çalışır
-    branches: [ main ]
-  pull_request:
+  workflow_dispatch: true
 
 jobs:
   megalinter:
